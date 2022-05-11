@@ -11,13 +11,29 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class CreateGroceryItem {
 
-//    @JsonProperty(value = "name", required = true)
+    /**
+     * The value should match the key in the JSON POJO
+     * If it does not match and @NotBlank is not present,
+     * then the internal logic will skip the field and
+     * the document will be created without the name field
+     */
+    @JsonProperty(value = "namae", required = true)
     @NotBlank(message = "Item should have a name!")
     private String name;
-//    @JsonProperty(value = "quantity", required = true)
+    /**
+     * The @JSONProperty value should match the key in the JSON POJO
+     * If it does not match and @NotBlank is present,
+     * then the server will return an error code and no
+     * document will be created without the name field
+     */
+    @JsonProperty(value = "quantity", required = true)
     @NotNull(message = "Item should have a quantity!")
     private int quantity;
-//    @JsonProperty(value = "category", required = true)
+    /**
+     * The @JSONProperty required should be true and it governs
+     * the behaviour during deserialization
+     */
+    @JsonProperty(value = "category", required = true)
     @NotBlank(message = "Item should have a category!")
     private String category;
 
