@@ -5,18 +5,19 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
 public class CreateGroceryItem {
 
-    @JsonProperty(value = "name", required = true)
+//    @JsonProperty(value = "name", required = true)
     @NotBlank(message = "Item should have a name!")
     private String name;
-    @JsonProperty(value = "quantity", required = true)
-    @NotBlank(message = "Item should have a quantity!")
+//    @JsonProperty(value = "quantity", required = true)
+    @NotNull(message = "Item should have a quantity!")
     private int quantity;
-    @JsonProperty(value = "category", required = true)
+//    @JsonProperty(value = "category", required = true)
     @NotBlank(message = "Item should have a category!")
     private String category;
 
